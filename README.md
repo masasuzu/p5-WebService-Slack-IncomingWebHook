@@ -6,7 +6,7 @@ Net::Slack - slack client
 
     use Net::Slack;
     my $slack = Net::Slack->new(
-        post_uri => 'http://xxxxxxxxxxxxxx',
+        webhook_uri => 'http://xxxxxxxxxxxxxx',
     );
     my $slack->post(
         text    => 'yahoooooo!!',
