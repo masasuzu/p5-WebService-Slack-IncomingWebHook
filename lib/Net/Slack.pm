@@ -22,16 +22,16 @@ sub new {
 
 sub post {
     my ($self, %args) = @_;
-    my $user    = delete $args{user}   || $self->{user}    || '';
-    my $channel = delete $args{chanel} || $self->{channel} || '';
+    my $user    = delete $args{user}    || $self->{user};
+    my $channel = delete $args{channel} || $self->{channel};
 
-    $channel = $user    ? "\@$user"   :
-               $channel ? "#$channel" : '';
+    $channel = $user    ? sprintf('@%s', $user)    :
+               $channel ? sprintf('#%s', $channel) : undef;
 
-    my $post_data = +{ %args, ($channel ? (channel => $channel) : ()) };
+    my $post_data = +{ %args };
+    $post_data->{channel} = $channel if defined $channel;
 
-    my $res = $self->{furl}->post($self->{post_uri}, [], $self->{json}->encode($post_data));
-
+    my $res = $self->{furl}->post($self->{post_uri}, ['Content-Type' => 'application/json'], $self->{json}->encode($post_data));
     if (! $res->is_success) {
         Carp::carp('post failed: '. $res->body);
     }
