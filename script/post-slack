@@ -1,0 +1,8 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Net::Slack::Script;
+Net::Slack::Script->run(@ARGV);
+
+
