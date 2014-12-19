@@ -22,8 +22,13 @@ sub new {
 
 sub post {
     my ($self, %args) = @_;
+    my $user    = delete $args{user}   || $self->{user}    || '';
+    my $channel = delete $args{chanel} || $self->{channel} || '';
 
-    my $post_data = +{ %args };
+    $channel = $user    ? "\@$user"   :
+               $channel ? "#$channel" : '';
+
+    my $post_data = +{ %args, ($channel ? (channel => $channel) : ()) };
 
     my $res = $self->{furl}->post($self->{post_uri}, [], $self->{json}->encode($post_data));
 
