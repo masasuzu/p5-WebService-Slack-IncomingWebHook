@@ -22,10 +22,10 @@ sub new {
 
 sub post {
     my ($self, %args) = @_;
-    my $user    = delete $args{user}    || $self->{user};
+    my $to_user = delete $args{to_user} || $self->{to_user};
     my $channel = delete $args{channel} || $self->{channel};
 
-    $channel = $user    ? sprintf('@%s', $user)    :
+    $channel = $to_user ? sprintf('@%s', $to_user)    :
                $channel ? sprintf('#%s', $channel) : undef;
 
     my $post_data = +{ %args };
@@ -36,7 +36,6 @@ sub post {
         Carp::carp('post failed: '. $res->body);
     }
 }
-
 
 
 1;

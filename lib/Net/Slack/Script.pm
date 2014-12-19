@@ -25,7 +25,10 @@ sub run {
             text=s
             webhook_uri=s
             channel=s
-            user=s
+            to_user=s
+            username=s
+            icon_url=s
+            icon_emoji=s
         ),
     );
     my @required_options = qw( webhook_uri text );
