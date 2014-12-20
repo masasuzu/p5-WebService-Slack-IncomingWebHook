@@ -19,7 +19,7 @@ Net::Slack is slack client.
 
 # LICENSE
 
-Copyright (C) masashi.
+Copyright (C) SUZUKI Masashi.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
