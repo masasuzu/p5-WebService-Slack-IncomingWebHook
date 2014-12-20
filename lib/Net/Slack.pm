@@ -27,7 +27,11 @@ sub post {
     my $post_data = +{ %args };
     $post_data->{channel} = $channel if defined $channel;
 
-    my $res = $self->{furl}->post($self->{webhook_url}, ['Content-Type' => 'application/json'], $self->{json}->encode($post_data));
+    my $res = $self->{furl}->post(
+        $self->{webhook_url},
+        ['Content-Type' => 'application/json'],
+        $self->{json}->encode($post_data)
+    );
     if (! $res->is_success) {
         Carp::carp('post failed: '. $res->body);
     }
@@ -69,7 +73,7 @@ Net::Slack is slack client.
 
 =head1 LICENSE
 
-Copyright (C) masashi.
+Copyright (C) SUZUKI Masashi.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
