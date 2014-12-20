@@ -11,7 +11,7 @@ post to slack incoming web hook.
 
 =head1 SYNOPSIS
 
-    % post-slack --webhook-uri='https://xxxxxx' --text='yahooo'
+    % post-slack --webhook-url='https://xxxxxx' --text='yahooo'
 
 =cut
 
@@ -23,7 +23,7 @@ sub run {
     GetOptions(
         \my %opt => qw(
             text=s
-            webhook_uri=s
+            webhook_url=s
             channel=s
             to_user=s
             username=s
@@ -31,13 +31,13 @@ sub run {
             icon_emoji=s
         ),
     );
-    my @required_options = qw( webhook_uri text );
+    my @required_options = qw( webhook_url text );
     for my $o (@required_options) {
         Carp::croak("--$o option required") if ! exists $opt{$o};
     }
 
-    my $webhook_uri = delete $opt{webhook_uri};
-    Net::Slack->new(webhook_uri => $webhook_uri)->post(%opt);
+    my $webhook_url = delete $opt{webhook_url};
+    Net::Slack->new(webhook_url => $webhook_url)->post(%opt);
 }
 
 

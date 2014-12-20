@@ -10,7 +10,7 @@ our $VERSION = "0.01";
 
 sub new {
     my ($class, %args) = @_;
-    Carp::croak('required webhook uri') if ! exists $args{webhook_uri};
+    Carp::croak('required webhook url') if ! exists $args{webhook_url};
 
     my $self = bless { %args } => $class;
 
@@ -31,7 +31,7 @@ sub post {
     my $post_data = +{ %args };
     $post_data->{channel} = $channel if defined $channel;
 
-    my $res = $self->{furl}->post($self->{webhook_uri}, ['Content-Type' => 'application/json'], $self->{json}->encode($post_data));
+    my $res = $self->{furl}->post($self->{webhook_url}, ['Content-Type' => 'application/json'], $self->{json}->encode($post_data));
     if (! $res->is_success) {
         Carp::carp('post failed: '. $res->body);
     }
@@ -51,7 +51,7 @@ Net::Slack - slack client
 
     use Net::Slack;
     my $slack = Net::Slack->new(
-        webhook_uri => 'http://xxxxxxxxxxxxxx',
+        webhook_url => 'http://xxxxxxxxxxxxxx',
     );
     my $slack->post(
         text    => 'yahoooooo!!',
