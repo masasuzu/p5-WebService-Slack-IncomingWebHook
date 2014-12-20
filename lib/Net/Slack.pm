@@ -22,11 +22,7 @@ sub new {
 
 sub post {
     my ($self, %args) = @_;
-    my $to_user = delete $args{to_user} || $self->{to_user};
-    my $channel = delete $args{channel} || $self->{channel};
-
-    $channel = $to_user ? sprintf('@%s', $to_user)    :
-               $channel ? sprintf('#%s', $channel) : undef;
+    my $channel = $self->_extract_channel(delete $args{to_user}, delete $args{channel});
 
     my $post_data = +{ %args };
     $post_data->{channel} = $channel if defined $channel;
@@ -37,6 +33,15 @@ sub post {
     }
 }
 
+
+sub _extract_channel {
+    my ($self, $to_user, $channel) = @_;
+    $to_user ||= $self->{to_user};
+    $channel ||= $self->{channel};
+
+    return $to_user ? sprintf('@%s', $to_user) :
+           $channel ? sprintf('#%s', $channel) : undef;
+}
 
 1;
 __END__
