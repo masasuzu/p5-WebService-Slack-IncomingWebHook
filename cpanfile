@@ -1,8 +1,8 @@
 # vim: ft=perl
 requires 'perl', '5.008001';
 
+requires 'Encode';
 requires 'Furl';
-requires 'Getopt::Long';
 requires 'IO::Socket::SSL'; # for https
 requires 'JSON';
 

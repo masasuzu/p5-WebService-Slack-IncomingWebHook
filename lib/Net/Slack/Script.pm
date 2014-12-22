@@ -2,6 +2,9 @@ package Net::Slack::Script;
 use 5.008001;
 use strict;
 use warnings;
+use utf8;
+
+use Encode qw( decode_utf8 );
 use Getopt::Long qw( :config posix_default no_ignore_case bundling auto_help );
 use Net::Slack;
 
@@ -37,6 +40,10 @@ sub run {
     }
 
     my $webhook_url = delete $opt{webhook_url};
+
+    # for multibyte character
+    $opt{$_} = decode_utf8($opt{$_}) for keys %opt;
+
     Net::Slack->new(webhook_url => $webhook_url)->post(%opt);
 }
 

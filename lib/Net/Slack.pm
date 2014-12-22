@@ -2,6 +2,8 @@ package Net::Slack;
 use 5.008001;
 use strict;
 use warnings;
+use utf8;
+
 use JSON;
 use Furl;
 use Carp ();
@@ -30,7 +32,7 @@ sub post {
     my $res = $self->{furl}->post(
         $self->{webhook_url},
         ['Content-Type' => 'application/json'],
-        $self->{json}->encode($post_data)
+        $self->{json}->encode($post_data),
     );
     if (! $res->is_success) {
         Carp::carp('post failed: '. $res->body);
