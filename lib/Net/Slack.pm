@@ -14,7 +14,9 @@ sub new {
     my ($class, %args) = @_;
     Carp::croak('required webhook url') if ! exists $args{webhook_url};
 
-    my $self = bless { %args } => $class;
+    my $self = bless {
+        map { ( $_ => $args{$_} || '' ) } qw( webhook_url channel icon_emoji icon_url username )
+    } => $class;
 
     $self->{json} = JSON->new->utf8;
     $self->{furl} = Furl->new(agent => "$class.$VERSION");
@@ -24,10 +26,8 @@ sub new {
 
 sub post {
     my ($self, %args) = @_;
-    my $channel = $self->_extract_channel(delete $args{to_user}, delete $args{channel});
 
-    my $post_data = +{ %args };
-    $post_data->{channel} = $channel if defined $channel;
+    my $post_data = $self->_make_post_data(%args);
 
     my $res = $self->{furl}->post(
         $self->{webhook_url},
@@ -39,14 +39,20 @@ sub post {
     }
 }
 
-
-sub _extract_channel {
-    my ($self, $to_user, $channel) = @_;
-    $to_user ||= $self->{to_user};
-    $channel ||= $self->{channel};
-
-    return $to_user ? sprintf('@%s', $to_user) :
-           $channel ? sprintf('#%s', $channel) : undef;
+sub _make_post_data {
+    my ($self, %args) = @_;
+    return +{
+        (
+            map {
+                exists $args{$_} ? ( $_ => $args{$_} ) : ()
+            } qw( text pretext color fields attachments )
+        ),
+        (
+            map {
+                ( $_ => exists $args{$_} ? $args{$_} : $self->{$_} )
+            } qw( channel icon_emoji icon_url username )
+        ),
+    };
 }
 
 1;

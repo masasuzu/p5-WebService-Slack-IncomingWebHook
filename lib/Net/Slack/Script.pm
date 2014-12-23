@@ -28,7 +28,6 @@ sub run {
             text=s
             webhook_url=s
             channel=s
-            to_user=s
             username=s
             icon_url=s
             icon_emoji=s
