@@ -63,16 +63,16 @@ __END__
 
 =head1 NAME
 
-WebService::Slack::IncomingWebHook - slack client
+WebService::Slack::IncomingWebHook - slack incoming webhook client
 
 =head1 SYNOPSIS
 
     # for perl program
     use WebService::Slack::IncomingWebHook;
-    my $net_slack = WebService::Slack::IncomingWebHook->new(
+    my $client = WebService::Slack::IncomingWebHook->new(
         webhook_url => 'http://xxxxxxxxxxxxxx',
     );
-    my $net_slack->post(
+    my $client->post(
         text       => 'yahoooooo!!',
     );
 
@@ -92,7 +92,7 @@ For cli, you can use post-slack command.
 
 =item WebService::Slack::IncomingWebHook->new(%params)
 
-    my $net_slack = WebService::Slack::IncomingWebHook->new(
+    my $client = WebService::Slack::IncomingWebHook->new(
         webhook_url => 'http://xxxxxxxxxxxxxx', # required
         channel    => '#general',               # optional
         username   => 'masasuzu',               # optional
@@ -102,9 +102,9 @@ For cli, you can use post-slack command.
 
 Creates new object.
 
-=item $net_slack->post(%params)
+=item $client->post(%params)
 
-    my $net_slack->post(
+    my $client->post(
         text       => 'yahoooooo!!',
         channel    => '#general',
         username   => 'masasuzu',
