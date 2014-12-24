@@ -47,7 +47,7 @@ sub _make_post_data {
                 exists $args{$_} ? ( $_ => $args{$_} ) : ()
             } qw( text pretext color fields attachments )
         ),
-        # override if specified parameter
+        # override if parameter specified
         (
             map {
                 ( $_ => exists $args{$_} ? $args{$_} : $self->{$_} )
