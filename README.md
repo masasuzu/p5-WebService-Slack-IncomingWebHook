@@ -4,6 +4,7 @@ Net::Slack - slack client
 
 # SYNOPSIS
 
+    # for perl program
     use Net::Slack;
     my $net_slack = Net::Slack->new(
         webhook_url => 'http://xxxxxxxxxxxxxx',
@@ -12,9 +13,13 @@ Net::Slack - slack client
         text       => 'yahoooooo!!',
     );
 
+    # for cli
+    % post-slack --webhook_url='https://xxxxxx' --text='yahooo'
+
 # DESCRIPTION
 
 Net::Slack is slack incoming webhooks client.
+For cli, you can use post-slack command.
 
 # METHOD
 
@@ -41,10 +46,23 @@ Net::Slack is slack incoming webhooks client.
         );
 
     Post to slack incoming webhooks.
-    _channel_, _username_, _icon\_emoji_ and _icon\_url_ parameters can override constructor's paramameter.
+    _channel_, _username_, _icon\_emoji_ and _icon\_url_ parameters can override constructor's parameter.
 
     _text_, _pretext_, _color_, _fields_ and _attachments_ parameter are available.
     See also slack incoming webhook document.
+
+# SCRIPT
+
+    % post-slack --webhook_url='https://xxxxxx' --text='yahooo'
+
+available options are ...
+
+- --webhook\_url (required)
+- --text (required)
+- --channel (optional)
+- --username (optional)
+- --icon\_url (optional)
+- --icon\_emoji (optional)
 
 # SEE ALSO
 

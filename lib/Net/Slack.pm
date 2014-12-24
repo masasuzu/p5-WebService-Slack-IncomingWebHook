@@ -67,6 +67,7 @@ Net::Slack - slack client
 
 =head1 SYNOPSIS
 
+    # for perl program
     use Net::Slack;
     my $net_slack = Net::Slack->new(
         webhook_url => 'http://xxxxxxxxxxxxxx',
@@ -75,9 +76,14 @@ Net::Slack - slack client
         text       => 'yahoooooo!!',
     );
 
+    # for cli
+    % post-slack --webhook_url='https://xxxxxx' --text='yahooo'
+
+
 =head1 DESCRIPTION
 
 Net::Slack is slack incoming webhooks client.
+For cli, you can use post-slack command.
 
 
 =head1 METHOD
@@ -113,6 +119,29 @@ I<text>, I<pretext>, I<color>, I<fields> and I<attachments> parameter are availa
 See also slack incoming webhook document.
 
 =back
+
+=head1 SCRIPT
+
+    % post-slack --webhook_url='https://xxxxxx' --text='yahooo'
+
+available options are ...
+
+=over 4
+
+=item  --webhook_url (required)
+
+=item  --text (required)
+
+=item  --channel (optional)
+
+=item  --username (optional)
+
+=item  --icon_url (optional)
+
+=item  --icon_emoji (optional)
+
+=back
+
 
 =head1 SEE ALSO
 
