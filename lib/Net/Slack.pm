@@ -47,6 +47,7 @@ sub _make_post_data {
                 exists $args{$_} ? ( $_ => $args{$_} ) : ()
             } qw( text pretext color fields attachments )
         ),
+        # override if specified parameter
         (
             map {
                 ( $_ => exists $args{$_} ? $args{$_} : $self->{$_} )
@@ -67,17 +68,55 @@ Net::Slack - slack client
 =head1 SYNOPSIS
 
     use Net::Slack;
-    my $slack = Net::Slack->new(
+    my $net_slack = Net::Slack->new(
         webhook_url => 'http://xxxxxxxxxxxxxx',
     );
-    my $slack->post(
-        text    => 'yahoooooo!!',
-        channel => '#general',
+    my $net_slack->post(
+        text       => 'yahoooooo!!',
     );
 
 =head1 DESCRIPTION
 
-Net::Slack is slack client.
+Net::Slack is slack incoming webhooks client.
+
+
+=head1 METHOD
+
+=over 4
+
+=item Net::Slack->new(%params)
+
+    my $net_slack = Net::Slack->new(
+        webhook_url => 'http://xxxxxxxxxxxxxx', # required
+        channel    => '#general',               # optional
+        username   => 'masasuzu',               # optional
+        icon_emoji => ':sushi:',                # optional
+        icon_url   => 'http://xxxxx/xxx.jpeg',  # optional
+    );
+
+Creates new object.
+
+=item $net_slack->post(%params)
+
+    my $net_slack->post(
+        text       => 'yahoooooo!!',
+        channel    => '#general',
+        username   => 'masasuzu',
+        icon_emoji => ':sushi:',
+        icon_url   => 'http://xxxxx/xxx.jpeg',
+    );
+
+Post to slack incoming webhooks.
+channel, username, icon_emoji and icon_url parameters can override constructor's paramameter.
+
+text, pretext, color, fields and attachments parameter are available.
+See also slack incoming webhook document.
+
+=back
+
+=head1 SEE ALSO
+
+L<https://my.slack.com/services/new/incoming-webhook>
 
 =head1 LICENSE
 

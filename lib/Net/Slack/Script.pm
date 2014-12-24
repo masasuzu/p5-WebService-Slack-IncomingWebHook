@@ -14,7 +14,14 @@ post to slack incoming web hook.
 
 =head1 SYNOPSIS
 
-    % post-slack --webhook-url='https://xxxxxx' --text='yahooo'
+    % post-slack --webhook_url='https://xxxxxx' --text='yahooo'
+
+        --webhook_url   required
+        --text          required
+        --channel
+        --username
+        --icon_url
+        --icon_emoji
 
 =cut
 
