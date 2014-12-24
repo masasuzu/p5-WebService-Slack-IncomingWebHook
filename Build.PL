@@ -21,8 +21,8 @@ my %args = (
         'Module::Build' => 0.38,
     },
 
-    name            => 'Net-Slack',
-    module_name     => 'Net::Slack',
+    name            => 'WebService-Slack-IncomingWebHook',
+    module_name     => 'WebService::Slack::IncomingWebHook',
     allow_pureperl => 0,
 
     script_files => [glob('script/*'), glob('bin/*')],

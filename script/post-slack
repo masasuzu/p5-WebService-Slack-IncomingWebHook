@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Net::Slack::Script;
-Net::Slack::Script->run(@ARGV);
+use WebService::Slack::IncomingWebHook::Script;
+WebService::Slack::IncomingWebHook::Script->run(@ARGV);
 
 

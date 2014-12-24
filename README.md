@@ -1,12 +1,12 @@
 # NAME
 
-Net::Slack - slack client
+WebService::Slack::IncomingWebHook - slack client
 
 # SYNOPSIS
 
     # for perl program
-    use Net::Slack;
-    my $net_slack = Net::Slack->new(
+    use WebService::Slack::IncomingWebHook;
+    my $net_slack = WebService::Slack::IncomingWebHook->new(
         webhook_url => 'http://xxxxxxxxxxxxxx',
     );
     my $net_slack->post(
@@ -18,14 +18,14 @@ Net::Slack - slack client
 
 # DESCRIPTION
 
-Net::Slack is slack incoming webhooks client.
+WebService::Slack::IncomingWebHook is slack incoming webhooks client.
 For cli, you can use post-slack command.
 
 # METHOD
 
-- Net::Slack->new(%params)
+- WebService::Slack::IncomingWebHook->new(%params)
 
-        my $net_slack = Net::Slack->new(
+        my $net_slack = WebService::Slack::IncomingWebHook->new(
             webhook_url => 'http://xxxxxxxxxxxxxx', # required
             channel    => '#general',               # optional
             username   => 'masasuzu',               # optional

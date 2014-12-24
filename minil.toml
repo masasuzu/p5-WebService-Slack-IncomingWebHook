@@ -1,4 +1,4 @@
-name = "Net-Slack"
+name = "WebService-Slack-IncomingWebHook"
 # badges = ["travis"]
 module_maker="ModuleBuild"
 

@@ -1,4 +1,4 @@
-package Net::Slack::Script;
+package WebService::Slack::IncomingWebHook::Script;
 use 5.008001;
 use strict;
 use warnings;
@@ -6,7 +6,7 @@ use utf8;
 
 use Encode qw( decode_utf8 );
 use Getopt::Long qw( :config posix_default no_ignore_case bundling auto_help );
-use Net::Slack;
+use WebService::Slack::IncomingWebHook;
 
 =head1 DESCTIPTION
 
@@ -50,7 +50,7 @@ sub run {
     # for multibyte character
     $opt{$_} = decode_utf8($opt{$_}) for keys %opt;
 
-    Net::Slack->new(webhook_url => $webhook_url)->post(%opt);
+    WebService::Slack::IncomingWebHook->new(webhook_url => $webhook_url)->post(%opt);
 }
 
 
