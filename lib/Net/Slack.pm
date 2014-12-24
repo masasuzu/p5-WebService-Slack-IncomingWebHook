@@ -107,9 +107,9 @@ Creates new object.
     );
 
 Post to slack incoming webhooks.
-channel, username, icon_emoji and icon_url parameters can override constructor's paramameter.
+I<channel>, I<username>, I<icon_emoji> and I<icon_url> parameters can override constructor's paramameter.
 
-text, pretext, color, fields and attachments parameter are available.
+I<text>, I<pretext>, I<color>, I<fields> and I<attachments> parameter are available.
 See also slack incoming webhook document.
 
 =back

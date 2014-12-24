@@ -41,9 +41,9 @@ Net::Slack is slack incoming webhooks client.
         );
 
     Post to slack incoming webhooks.
-    channel, username, icon\_emoji and icon\_url parameters can override constructor's paramameter.
+    _channel_, _username_, _icon\_emoji_ and _icon\_url_ parameters can override constructor's paramameter.
 
-    text, pretext, color, fields and attachments parameter are available.
+    _text_, _pretext_, _color_, _fields_ and _attachments_ parameter are available.
     See also slack incoming webhook document.
 
 # SEE ALSO
