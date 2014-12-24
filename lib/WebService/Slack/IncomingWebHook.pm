@@ -83,7 +83,8 @@ WebService::Slack::IncomingWebHook - slack incoming webhook client
 =head1 DESCRIPTION
 
 WebService::Slack::IncomingWebHook is slack incoming webhooks client.
-For cli, you can use post-slack command.
+L<Slack|https://slack.com/> is chat web service.
+For cli, this distribution provides post-slack command.
 
 
 =head1 METHOD
@@ -112,7 +113,7 @@ Creates new object.
         icon_url   => 'http://xxxxx/xxx.jpeg',
     );
 
-Post to slack incoming webhooks.
+Posts to slack incoming webhooks.
 I<channel>, I<username>, I<icon_emoji> and I<icon_url> parameters can override constructor's parameter.
 
 I<text>, I<pretext>, I<color>, I<fields> and I<attachments> parameter are available.
