@@ -2,8 +2,8 @@ use strict;
 use Test::More 0.96;
 
 use_ok $_ for qw(
-    Net::Slack
-    Net::Slack::Script
+    WebService::Slack::IncomingWebHook
+    WebService::Slack::IncomingWebHook::Script
 );
 
 done_testing;

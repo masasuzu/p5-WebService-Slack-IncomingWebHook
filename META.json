@@ -1,5 +1,5 @@
 {
-   "abstract" : "slack client",
+   "abstract" : "slack incoming webhook client",
    "author" : [
       "SUZUKI Masashi <m15.suzuki.masashi@gmail.com>"
    ],

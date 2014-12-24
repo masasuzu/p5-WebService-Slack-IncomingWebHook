@@ -1,6 +1,6 @@
 # NAME
 
-WebService::Slack::IncomingWebHook - slack client
+WebService::Slack::IncomingWebHook - slack incoming webhook client
 
 # SYNOPSIS
 
