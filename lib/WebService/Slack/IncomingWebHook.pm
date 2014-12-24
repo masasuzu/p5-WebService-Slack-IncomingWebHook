@@ -15,7 +15,7 @@ sub new {
     Carp::croak('required webhook url') if ! exists $args{webhook_url};
 
     my $self = bless {
-        map { ( $_ => $args{$_} || '' ) } qw( webhook_url channel icon_emoji icon_url username )
+        map { ( $_ => $args{$_} ) } qw( webhook_url channel icon_emoji icon_url username )
     } => $class;
 
     $self->{json} = JSON->new->utf8;
