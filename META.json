@@ -62,13 +62,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/masasuzu/p5-Net-Slack/issues"
+         "web" : "https://github.com/masasuzu/p5-WebService-Slack-IncomingWebHook/issues"
       },
-      "homepage" : "https://github.com/masasuzu/p5-Net-Slack",
+      "homepage" : "https://github.com/masasuzu/p5-WebService-Slack-IncomingWebHook",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/masasuzu/p5-Net-Slack.git",
-         "web" : "https://github.com/masasuzu/p5-Net-Slack"
+         "url" : "git://github.com/masasuzu/p5-WebService-Slack-IncomingWebHook.git",
+         "web" : "https://github.com/masasuzu/p5-WebService-Slack-IncomingWebHook"
       }
    },
    "version" : "0.01"

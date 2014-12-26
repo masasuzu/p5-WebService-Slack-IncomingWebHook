@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/masasuzu/p5-Net-Slack.svg?branch=master)](https://travis-ci.org/masasuzu/p5-Net-Slack)
+[![Build Status](https://travis-ci.org/masasuzu/p5-WebService-Slack-IncomingWebHook.svg?branch=master)](https://travis-ci.org/masasuzu/p5-WebService-Slack-IncomingWebHook)
 # NAME
 
 WebService::Slack::IncomingWebHook - slack incoming webhook client
