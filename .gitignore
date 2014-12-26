@@ -27,4 +27,5 @@ cover_db/
 
 MYMETA.*
 
-/Net-Slack-*
+/WebService-Slack-IncomingWebHook-*
+.pause
