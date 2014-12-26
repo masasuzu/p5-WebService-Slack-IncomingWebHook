@@ -1,5 +1,5 @@
 name = "WebService-Slack-IncomingWebHook"
-# badges = ["travis"]
+badges = ["travis"]
 module_maker="ModuleBuild"
 
 [release]
