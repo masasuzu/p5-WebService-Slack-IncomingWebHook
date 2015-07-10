@@ -105,7 +105,7 @@ Creates new object.
 
 =item $client->post(%params)
 
-    my $client->post(
+    $client->post(
         text       => 'yahoooooo!!',
         channel    => '#general',
         username   => 'masasuzu',

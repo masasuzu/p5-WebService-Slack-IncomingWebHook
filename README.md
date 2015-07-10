@@ -39,7 +39,7 @@ For cli, this distribution provides post-slack command.
 
 - $client->post(%params)
 
-        my $client->post(
+        $client->post(
             text       => 'yahoooooo!!',
             channel    => '#general',
             username   => 'masasuzu',
