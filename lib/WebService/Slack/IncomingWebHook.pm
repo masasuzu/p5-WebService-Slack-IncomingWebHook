@@ -72,7 +72,7 @@ WebService::Slack::IncomingWebHook - slack incoming webhook client
     my $client = WebService::Slack::IncomingWebHook->new(
         webhook_url => 'http://xxxxxxxxxxxxxx',
     );
-    my $client->post(
+    $client->post(
         text       => 'yahoooooo!!',
     );
 
