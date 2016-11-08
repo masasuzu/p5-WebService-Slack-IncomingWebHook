@@ -14,11 +14,36 @@ use File::Basename;
 use File::Spec;
 
 my %args = (
-    license              => 'perl',
+    license              => 'perl_5',
     dynamic_config       => 0,
 
     configure_requires => {
-        'Module::Build' => 0.38,
+        'Module::Build' => '0.4005',
+    },
+
+    requires => {
+        'Encode' => '0',
+        'Furl' => '0',
+        'IO::Socket::SSL' => '0',
+        'JSON' => '0',
+        'perl' => '5.008001',
+    },
+
+    recommends => {
+    },
+
+    suggests => {
+    },
+
+    build_requires => {
+    },
+
+    test_requires => {
+        'Capture::Tiny' => '0',
+        'Plack' => '0',
+        'Test::Exception' => '0',
+        'Test::More' => '0.96',
+        'Test::TCP' => '0',
     },
 
     name            => 'WebService-Slack-IncomingWebHook',
@@ -50,16 +75,4 @@ my $builder = Module::Build->subclass(
     }
 )->new(%args);
 $builder->create_build_script();
-
-use File::Copy;
-
-print "cp META.json MYMETA.json\n";
-copy("META.json","MYMETA.json") or die "Copy failed(META.json): $!";
-
-if (-f 'META.yml') {
-    print "cp META.yml MYMETA.yml\n";
-    copy("META.yml","MYMETA.yml") or die "Copy failed(META.yml): $!";
-} else {
-    print "There is no META.yml... You may install this module from the repository...\n";
-}
 

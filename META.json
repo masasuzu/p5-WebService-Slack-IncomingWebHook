@@ -4,7 +4,7 @@
       "SUZUKI Masashi <m15.suzuki.masashi@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.4.1, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Minilla/v3.0.4, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -28,7 +28,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.4005"
          }
       },
       "develop" : {
@@ -71,5 +71,10 @@
          "web" : "https://github.com/masasuzu/p5-WebService-Slack-IncomingWebHook"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02",
+   "x_contributors" : [
+      "Anirvan Chatterjee <anirvan@users.noreply.github.com>",
+      "SUZUKI Masashi <masasuzu@users.noreply.github.com>"
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27400"
 }
